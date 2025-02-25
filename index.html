@@ -5,22 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spin The Wheel</title>
     <style>
-        body { text-align: center; font-family: Arial, sans-serif; }
+        body { text-align: center; font-family: Arial, sans-serif; background-color: #f0f0f0; }
         .wheel-container { position: relative; width: 300px; margin: 50px auto; }
-        .wheel { width: 100%; border-radius: 50%; transition: transform 4s ease-out; }
-        .button { margin-top: 20px; padding: 10px 20px; font-size: 16px; cursor: pointer; }
+        .wheel { width: 100%; border-radius: 50%; transition: transform 4s ease-out; border: 5px solid #333; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); }
+        .button { margin-top: 20px; padding: 10px 20px; font-size: 18px; cursor: pointer; background-color: #28a745; color: white; border: none; border-radius: 5px; }
+        .button:hover { background-color: #218838; }
+        .result-container { margin-top: 20px; font-size: 20px; font-weight: bold; color: #333; }
+        .input-container { margin-top: 10px; font-size: 16px; }
+        .banner { width: 100%; height: 200px; background: url('https://source.unsplash.com/1600x400/?casino,game') no-repeat center; background-size: cover; margin-bottom: 20px; }
     </style>
 </head>
 <body>
-    <h2>Spin The Wheel</h2>
+    <div class="banner"></div>
+    <h2>🎡 Spin The Wheel 🎡</h2>
     <div class="wheel-container">
         <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Roulette_wheel.svg" class="wheel" id="wheel">
     </div>
-    <label for="spins">Jumlah Putaran:</label>
-    <input type="number" id="spins" min="1" max="10" value="3">
-    <br>
-    <button class="button" onclick="spinWheel()">Putar!</button>
-    <p id="result"></p>
+    <div class="input-container">
+        <label for="spins">Jumlah Putaran:</label>
+        <input type="number" id="spins" min="1" max="10" value="3">
+    </div>
+    <button class="button" onclick="spinWheel()">🎰 Putar!</button>
+    <p class="result-container" id="result"></p>
 
     <script>
         function spinWheel() {
@@ -41,7 +47,7 @@
             let degree = spins * 360 + Math.floor(Math.random() * 360);
             document.getElementById("wheel").style.transform = `rotate(${degree}deg)`;
             setTimeout(() => {
-                document.getElementById("result").innerText = "Anda mendapatkan: " + result;
+                document.getElementById("result").innerText = "🎉 Anda mendapatkan: " + result + " 🎉";
             }, 4000);
         }
     </script>
